@@ -12,25 +12,29 @@ public class main {
 
     public static void main(String[] args) throws Exception {
         // fazer uma conexão HTTP
-        String url = "https://imdb-api.com/en/API/Top250Movies/k_wee3i8e4";
+        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/TopMovies.json";
         URI endereco = URI.create(url);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
         String body = response.body();
-        System.out.println(body);
 
 
-        // pegar só os dados que interessam (título, poster, classificação)
+        // extrair só os dados que interessam (título, poster, classificação)
         var parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
 
         // exibir e manipular os dados
         var geradora = new GeradoraDeFigurinhas();
-        for (Map<String, String> filme : listaDeFilmes) {
 
-            String urlImage = filme.get("image");
+        for (int i = 0; i< 3; i++) {
+            Map<String, String> filme = listaDeFilmes.get(i);
+
+           // String urlImage = filme.get("image");
+
+            String urlImage = filme.get("image").replaceAll("(@+) (.*).jpg$", "$1.jpg");
+
             String titulo = filme.get("title");
 
             InputStream inputStream = new URL(urlImage).openStream();
