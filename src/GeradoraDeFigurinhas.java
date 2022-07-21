@@ -1,9 +1,11 @@
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
-import java.net.URL;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+
 
 public class GeradoraDeFigurinhas {
 
@@ -12,8 +14,8 @@ public class GeradoraDeFigurinhas {
          //leitura da imagem
          //InputStream inputStream = new FileInputStream(new File("entrada/filme-maior.jpg"));
          //InputStream inputStream =
-                         new URL("https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg")
-                         .openStream();
+         //                new URL("https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg")
+         //                .openStream();
         BufferedImage imagemOriginal = ImageIO.read(inputStream);
 
         // cria nova imagem em memória com transparência e com tamanho novo
