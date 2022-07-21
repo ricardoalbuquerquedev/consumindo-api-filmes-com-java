@@ -6,15 +6,23 @@ public class main {
 
     public static void main(String[] args) throws Exception {
         // fazer uma conexão HTTP
-        //String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/TopMovies.json";
-        String url = "https://api.nasa.gov/planetary/apod?api_key=BiFJ5ei3w3IF2MLT0PBBxOHm5mqARu7eQRBf2H0z";
-        //String url =  "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/NASA-APOD.json";
+        // String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/TopMovies.json";
+        // ExtratorDeConteudo extrator = new ExtratorDeConteudoDoIMDB();
+
+
+
+        // String url =  "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/NASA-APOD.json";
+        // String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/NASA-APOD.json"
+
+        ExtratorDeConteudo extrator = new ExtratorDeConteudoDaNasa();
+        String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14";
+        //String url = "https://api.mocki.io/v2/549a5d8b/NASA-APOD"
+
+
         var http = new ClienteHttp();
          String json = http.buscaDados(url);
 
-
         // exibir e manipular os dados
-        ExtratorDeConteudoDaNasa extrator = new ExtratorDeConteudoDaNasa();
         List<Conteudo> conteudos = extrator.extraiConteudos(json);
 
         var geradora = new GeradoraDeFigurinhas();
@@ -25,7 +33,7 @@ public class main {
             Conteudo conteudo = conteudos.get(i);
 
             InputStream inputStream = new URL(conteudo.getUrlimagem()).openStream();
-            String nomeArquivo ="saida/" + conteudo.getTitulo() + ".png";
+            String nomeArquivo ="../saida/" + conteudo.getTitulo() + ".png";
 
             geradora.cria(inputStream, nomeArquivo);
             System.out.println(conteudo.getTitulo());
