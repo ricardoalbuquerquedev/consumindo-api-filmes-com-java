@@ -33,8 +33,7 @@ public class main {
             Conteudo conteudo = conteudos.get(i);
 
             InputStream inputStream = new URL(conteudo.getUrlimagem()).openStream();
-            String nomeArquivo ="../saida/" + conteudo.getTitulo() + ".png";
-
+            String nomeArquivo ="saida/" + conteudo.getTitulo().replace(":", "-") + ".png";
             geradora.cria(inputStream, nomeArquivo);
             System.out.println(conteudo.getTitulo());
             System.out.println();
