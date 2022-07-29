@@ -1,3 +1,7 @@
+![CacheLib](https://lh4.googleusercontent.com/Lb2XTpd5bBDdZm2bmdG1y3YpwX18BEyCeEfOlpfpRulDMlWKjy0a1Bvs6J33iTsBcAn0Tew6J1DE2zlAUg7XhUeoE1wBjeVcNpdF6lQeWgdzLIr0tEDlfaPuOvv5vG2KDQ=w1600)
+
+![](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
 ## Descrição do Projeto 
 
 Construção de uma aplicação do zero para consumir a API do IMDb e exibir os filmes mais populares, destacando seus pôsteres e visualizando sua classificação...
